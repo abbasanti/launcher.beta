@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.santi.launcher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.santi.launcher'
+        minSdk 23
+        targetSdk 34
+        versionCode 3
+        versionName '1.2'
+    }
+
+    // Clave fija: permite instalar versiones nuevas encima de la anterior.
+    signingConfigs {
+        propia {
+            storeFile file('launcher.keystore')
+            storePassword 'milauncher'
+            keyAlias 'launcher'
+            keyPassword 'milauncher'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.propia
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        checkReleaseBuilds false
+    }
+}

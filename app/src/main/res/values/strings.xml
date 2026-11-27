@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mi Launcher</string>
+    <string name="servicio_nombre">Mi Launcher: botón Inicio</string>
+    <string name="servicio_descripcion">Hace que el botón Inicio abra Mi Launcher. Solo detecta la tecla Inicio y qué pantalla se abre; no lee su contenido ni envía datos.</string>
+</resources>
