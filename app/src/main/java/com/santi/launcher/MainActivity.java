@@ -280,7 +280,18 @@ public class MainActivity extends Activity {
                         new Intent(Settings.ACTION_SETTINGS));
             }
         });
-        izquierda.addView(usuarios, new LinearLayout.LayoutParams(px(56), px(56)));
+        izquierda.addView(usuarios, margen(px(56), px(56), 0, 16));
+
+        if (config.numero(Config.ENTRADAS, 0) == 0) {
+            View entradas = boton("Elegir entrada: HDMI, AV, antena", R.drawable.ic_entradas);
+            entradas.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    elegirEntrada();
+                }
+            });
+            izquierda.addView(entradas, new LinearLayout.LayoutParams(px(56), px(56)));
+        }
 
         FrameLayout.LayoutParams posIzq = new FrameLayout.LayoutParams(-2, px(60), Gravity.LEFT);
         posIzq.setMargins(px(48), px(26), 0, 0);
@@ -1049,6 +1060,34 @@ public class MainActivity extends Activity {
                 && datos != null && datos.getData() != null) {
             importarFondo(datos.getData());
         }
+    }
+
+    // ---------------------------------------------------------------- Entradas
+
+    private void elegirEntrada() {
+        final List<Entradas.Entrada> lista = Entradas.buscar(this);
+        if (lista.isEmpty()) {
+            mostrarDialogo(tema.dialogo(this)
+                    .setTitle("No se encontraron entradas")
+                    .setMessage("Este equipo no informa entradas externas. Es lo esperable en "
+                            + "dispositivos externos (como un TV Box), y algunas TV no las "
+                            + "comparten con otras apps. Probá el botón Fuente o Input del control.")
+                    .setPositiveButton("Aceptar", null));
+            return;
+        }
+        String[] nombres = new String[lista.size()];
+        for (int i = 0; i < nombres.length; i++) {
+            nombres[i] = lista.get(i).nombre;
+        }
+        mostrarDialogo(tema.dialogo(this)
+                .setTitle("Elegir entrada")
+                .setItems(nombres, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface d, int indice) {
+                        abrirPrimero(lista.get(indice).abrir);
+                    }
+                })
+                .setNegativeButton("Cancelar", null));
     }
 
     // ---------------------------------------------------------------- Sistema

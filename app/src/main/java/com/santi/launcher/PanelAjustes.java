@@ -100,6 +100,7 @@ final class PanelAjustes {
         });
 
         seccion("Sistema");
+        opcion("Botón de entradas (HDMI, AV)", Config.ENTRADAS, 0, SI_NO);
         fila("Launcher predeterminado",
                 app.esPredeterminado() ? "Mi Launcher es el predeterminado" : "Tocar para configurar",
                 new Runnable() {
@@ -131,7 +132,7 @@ final class PanelAjustes {
                         .setNegativeButton("Cancelar", null));
             }
         });
-        fila("Cerrar ajustes", "Versión 1.2", new Runnable() {
+        fila("Cerrar ajustes", "Versión 1.3", new Runnable() {
             @Override
             public void run() {
                 app.cerrarPanel();

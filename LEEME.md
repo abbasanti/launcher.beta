@@ -20,6 +20,7 @@ la instalación de apps desconocidas).
 
 ## Uso
 
+- Botón de entradas (arriba a la izquierda): cambiar a HDMI, AV/RCA o antena, según lo que informe la TV.
 - **+ Agregar apps** (en el inicio): marcar las favoritas.
 - Mantener presionado **OK** sobre una app: favoritas, mover, ocultar o ver su información.
 - Botón de controles deslizantes (arriba): fondo, tema, tamaño de íconos, reloj, apps ocultas y launcher predeterminado.

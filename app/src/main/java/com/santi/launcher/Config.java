@@ -19,6 +19,7 @@ final class Config {
     static final String HORA = "hora";
     static final String FECHA = "fecha";
     static final String BOTON_AGREGAR = "boton_agregar";
+    static final String ENTRADAS = "boton_entradas";
     static final String PREGUNTADO = "predeterminado_preguntado";
     private static final String FAVORITAS = "favoritas";
     private static final String OCULTAS = "ocultas";
@@ -57,7 +58,8 @@ final class Config {
 
     void restablecerApariencia() {
         datos.edit().remove(TEMA).remove(FONDO).remove(ATENUAR).remove(TAMANO)
-                .remove(NOMBRES).remove(HORA).remove(FECHA).remove(BOTON_AGREGAR).apply();
+                .remove(NOMBRES).remove(HORA).remove(FECHA).remove(BOTON_AGREGAR)
+                .remove(ENTRADAS).apply();
     }
 
     private List<String> lista(String clave) {
